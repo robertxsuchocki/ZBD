@@ -1,0 +1,41 @@
+CREATE INDEX
+CREATE INDEX
+                                                                               QUERY PLAN                                                                               
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=147327.30..147327.30 rows=1 width=116) (actual time=25263.764..25263.764 rows=1 loops=1)
+   ->  Sort  (cost=147327.30..147327.36 rows=25 width=116) (actual time=25263.762..25263.762 rows=1 loops=1)
+         Sort Key: (sum((lineitem.l_extendedprice * ('1'::numeric - lineitem.l_discount)))) DESC
+         Sort Method: top-N heapsort  Memory: 25kB
+         ->  HashAggregate  (cost=147326.86..147327.17 rows=25 width=116) (actual time=25263.713..25263.717 rows=5 loops=1)
+               Group Key: nation.n_name
+               ->  Hash Join  (cost=31615.14..147316.02 rows=1084 width=116) (actual time=411.934..25146.038 rows=36392 loops=1)
+                     Hash Cond: ((lineitem.l_suppkey = supplier.s_suppkey) AND (customer.c_nationkey = supplier.s_nationkey))
+                     ->  Nested Loop  (cost=29215.14..144701.83 rows=27114 width=136) (actual time=372.973..24716.695 rows=903772 loops=1)
+                           ->  Hash Join  (cost=29214.58..90266.32 rows=6778 width=120) (actual time=372.944..2166.739 rows=226169 loops=1)
+                                 Hash Cond: (orders.o_custkey = customer.c_custkey)
+                                 ->  Index Scan using i_orders on orders  (cost=0.43..56663.10 rows=1152342 width=12) (actual time=0.036..868.001 rows=1136308 loops=1)
+                                 ->  Hash  (cost=29159.00..29159.00 rows=4412 width=120) (actual time=372.818..372.818 rows=149877 loops=1)
+                                       Buckets: 65536 (originally 8192)  Batches: 4 (originally 1)  Memory Usage: 3585kB
+                                       ->  Hash Join  (cost=13.50..29159.00 rows=4412 width=120) (actual time=0.574..325.329 rows=149877 loops=1)
+                                             Hash Cond: (customer.c_nationkey = nation.n_nationkey)
+                                             ->  Seq Scan on customer  (cost=0.00..26033.00 rows=750000 width=12) (actual time=0.003..214.733 rows=750000 loops=1)
+                                             ->  Hash  (cost=13.49..13.49 rows=1 width=108) (actual time=0.561..0.561 rows=5 loops=1)
+                                                   Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                                   ->  Hash Join  (cost=12.14..13.49 rows=1 width=108) (actual time=0.551..0.559 rows=5 loops=1)
+                                                         Hash Cond: (nation.n_regionkey = region.r_regionkey)
+                                                         ->  Seq Scan on nation  (cost=0.00..1.25 rows=25 width=116) (actual time=0.276..0.280 rows=25 loops=1)
+                                                         ->  Hash  (cost=12.12..12.12 rows=1 width=4) (actual time=0.260..0.260 rows=1 loops=1)
+                                                               Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                                               ->  Seq Scan on region  (cost=0.00..12.12 rows=1 width=4) (actual time=0.248..0.249 rows=1 loops=1)
+                                                                     Filter: (r_name = 'AMERICA'::bpchar)
+                                                                     Rows Removed by Filter: 4
+                           ->  Index Scan using i_lineitem on lineitem  (cost=0.56..7.22 rows=81 width=28) (actual time=0.091..0.098 rows=4 loops=226169)
+                                 Index Cond: (l_orderkey = orders.o_orderkey)
+                     ->  Hash  (cost=1650.00..1650.00 rows=50000 width=12) (actual time=38.388..38.388 rows=50000 loops=1)
+                           Buckets: 65536  Batches: 1  Memory Usage: 2856kB
+                           ->  Seq Scan on supplier  (cost=0.00..1650.00 rows=50000 width=12) (actual time=0.006..22.324 rows=50000 loops=1)
+ Planning time: 13.741 ms
+ Execution time: 25263.952 ms
+(34 rows)
+
+

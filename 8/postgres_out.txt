@@ -1,0 +1,1260 @@
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 1 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 496
+-[ RECORD 2 ]---
+l_partkey | 709
+-[ RECORD 3 ]---
+l_partkey | 791
+-[ RECORD 4 ]---
+l_partkey | 1365
+-[ RECORD 5 ]---
+l_partkey | 1829
+-[ RECORD 6 ]---
+l_partkey | 2028
+-[ RECORD 7 ]---
+l_partkey | 2363
+-[ RECORD 8 ]---
+l_partkey | 2398
+-[ RECORD 9 ]---
+l_partkey | 2413
+-[ RECORD 10 ]--
+l_partkey | 4755
+-[ RECORD 11 ]--
+l_partkey | 5040
+-[ RECORD 12 ]--
+l_partkey | 5418
+-[ RECORD 13 ]--
+l_partkey | 5745
+-[ RECORD 14 ]--
+l_partkey | 6585
+-[ RECORD 15 ]--
+l_partkey | 6753
+-[ RECORD 16 ]--
+l_partkey | 7051
+-[ RECORD 17 ]--
+l_partkey | 7418
+-[ RECORD 18 ]--
+l_partkey | 7678
+-[ RECORD 19 ]--
+l_partkey | 8309
+-[ RECORD 20 ]--
+l_partkey | 8684
+
+Time: 95,208 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 1 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 496
+-[ RECORD 2 ]---
+l_partkey | 709
+-[ RECORD 3 ]---
+l_partkey | 791
+-[ RECORD 4 ]---
+l_partkey | 1365
+-[ RECORD 5 ]---
+l_partkey | 1829
+-[ RECORD 6 ]---
+l_partkey | 2028
+-[ RECORD 7 ]---
+l_partkey | 2363
+-[ RECORD 8 ]---
+l_partkey | 2398
+-[ RECORD 9 ]---
+l_partkey | 2413
+-[ RECORD 10 ]--
+l_partkey | 4755
+-[ RECORD 11 ]--
+l_partkey | 5040
+-[ RECORD 12 ]--
+l_partkey | 5418
+-[ RECORD 13 ]--
+l_partkey | 5745
+-[ RECORD 14 ]--
+l_partkey | 6585
+-[ RECORD 15 ]--
+l_partkey | 6753
+-[ RECORD 16 ]--
+l_partkey | 7051
+-[ RECORD 17 ]--
+l_partkey | 7418
+-[ RECORD 18 ]--
+l_partkey | 7678
+-[ RECORD 19 ]--
+l_partkey | 8309
+-[ RECORD 20 ]--
+l_partkey | 8684
+
+Time: 5,131 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 2 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]----
+l_partkey | 2359
+-[ RECORD 2 ]----
+l_partkey | 3983
+-[ RECORD 3 ]----
+l_partkey | 5383
+-[ RECORD 4 ]----
+l_partkey | 6735
+-[ RECORD 5 ]----
+l_partkey | 8723
+-[ RECORD 6 ]----
+l_partkey | 8764
+-[ RECORD 7 ]----
+l_partkey | 9732
+-[ RECORD 8 ]----
+l_partkey | 10922
+-[ RECORD 9 ]----
+l_partkey | 12698
+-[ RECORD 10 ]---
+l_partkey | 13047
+-[ RECORD 11 ]---
+l_partkey | 13291
+-[ RECORD 12 ]---
+l_partkey | 13618
+-[ RECORD 13 ]---
+l_partkey | 13824
+-[ RECORD 14 ]---
+l_partkey | 14250
+-[ RECORD 15 ]---
+l_partkey | 14608
+-[ RECORD 16 ]---
+l_partkey | 14759
+-[ RECORD 17 ]---
+l_partkey | 15251
+-[ RECORD 18 ]---
+l_partkey | 15517
+-[ RECORD 19 ]---
+l_partkey | 16611
+-[ RECORD 20 ]---
+l_partkey | 17533
+
+Time: 78,738 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 2 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]----
+l_partkey | 2359
+-[ RECORD 2 ]----
+l_partkey | 3983
+-[ RECORD 3 ]----
+l_partkey | 5383
+-[ RECORD 4 ]----
+l_partkey | 6735
+-[ RECORD 5 ]----
+l_partkey | 8723
+-[ RECORD 6 ]----
+l_partkey | 8764
+-[ RECORD 7 ]----
+l_partkey | 9732
+-[ RECORD 8 ]----
+l_partkey | 10922
+-[ RECORD 9 ]----
+l_partkey | 12698
+-[ RECORD 10 ]---
+l_partkey | 13047
+-[ RECORD 11 ]---
+l_partkey | 13291
+-[ RECORD 12 ]---
+l_partkey | 13618
+-[ RECORD 13 ]---
+l_partkey | 13824
+-[ RECORD 14 ]---
+l_partkey | 14250
+-[ RECORD 15 ]---
+l_partkey | 14608
+-[ RECORD 16 ]---
+l_partkey | 14759
+-[ RECORD 17 ]---
+l_partkey | 15251
+-[ RECORD 18 ]---
+l_partkey | 15517
+-[ RECORD 19 ]---
+l_partkey | 16611
+-[ RECORD 20 ]---
+l_partkey | 17533
+
+Time: 4,455 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 3 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 70
+-[ RECORD 2 ]---
+l_partkey | 362
+-[ RECORD 3 ]---
+l_partkey | 838
+-[ RECORD 4 ]---
+l_partkey | 1341
+-[ RECORD 5 ]---
+l_partkey | 1384
+-[ RECORD 6 ]---
+l_partkey | 2024
+-[ RECORD 7 ]---
+l_partkey | 2070
+-[ RECORD 8 ]---
+l_partkey | 2361
+-[ RECORD 9 ]---
+l_partkey | 2644
+-[ RECORD 10 ]--
+l_partkey | 2653
+-[ RECORD 11 ]--
+l_partkey | 2747
+-[ RECORD 12 ]--
+l_partkey | 2832
+-[ RECORD 13 ]--
+l_partkey | 2912
+-[ RECORD 14 ]--
+l_partkey | 2936
+-[ RECORD 15 ]--
+l_partkey | 3030
+-[ RECORD 16 ]--
+l_partkey | 3547
+-[ RECORD 17 ]--
+l_partkey | 4124
+-[ RECORD 18 ]--
+l_partkey | 4220
+-[ RECORD 19 ]--
+l_partkey | 4409
+-[ RECORD 20 ]--
+l_partkey | 4522
+
+Time: 167,206 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 3 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 70
+-[ RECORD 2 ]---
+l_partkey | 362
+-[ RECORD 3 ]---
+l_partkey | 838
+-[ RECORD 4 ]---
+l_partkey | 1341
+-[ RECORD 5 ]---
+l_partkey | 1384
+-[ RECORD 6 ]---
+l_partkey | 2024
+-[ RECORD 7 ]---
+l_partkey | 2070
+-[ RECORD 8 ]---
+l_partkey | 2361
+-[ RECORD 9 ]---
+l_partkey | 2644
+-[ RECORD 10 ]--
+l_partkey | 2653
+-[ RECORD 11 ]--
+l_partkey | 2747
+-[ RECORD 12 ]--
+l_partkey | 2832
+-[ RECORD 13 ]--
+l_partkey | 2912
+-[ RECORD 14 ]--
+l_partkey | 2936
+-[ RECORD 15 ]--
+l_partkey | 3030
+-[ RECORD 16 ]--
+l_partkey | 3547
+-[ RECORD 17 ]--
+l_partkey | 4124
+-[ RECORD 18 ]--
+l_partkey | 4220
+-[ RECORD 19 ]--
+l_partkey | 4409
+-[ RECORD 20 ]--
+l_partkey | 4522
+
+Time: 4,277 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 4 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 51
+-[ RECORD 2 ]---
+l_partkey | 117
+-[ RECORD 3 ]---
+l_partkey | 218
+-[ RECORD 4 ]---
+l_partkey | 414
+-[ RECORD 5 ]---
+l_partkey | 1477
+-[ RECORD 6 ]---
+l_partkey | 1676
+-[ RECORD 7 ]---
+l_partkey | 3130
+-[ RECORD 8 ]---
+l_partkey | 3450
+-[ RECORD 9 ]---
+l_partkey | 3766
+-[ RECORD 10 ]--
+l_partkey | 4392
+-[ RECORD 11 ]--
+l_partkey | 4487
+-[ RECORD 12 ]--
+l_partkey | 4585
+-[ RECORD 13 ]--
+l_partkey | 5006
+-[ RECORD 14 ]--
+l_partkey | 6204
+-[ RECORD 15 ]--
+l_partkey | 6560
+-[ RECORD 16 ]--
+l_partkey | 6587
+-[ RECORD 17 ]--
+l_partkey | 7108
+-[ RECORD 18 ]--
+l_partkey | 7267
+-[ RECORD 19 ]--
+l_partkey | 7680
+-[ RECORD 20 ]--
+l_partkey | 7930
+
+Time: 96,242 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 4 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 51
+-[ RECORD 2 ]---
+l_partkey | 117
+-[ RECORD 3 ]---
+l_partkey | 218
+-[ RECORD 4 ]---
+l_partkey | 414
+-[ RECORD 5 ]---
+l_partkey | 1477
+-[ RECORD 6 ]---
+l_partkey | 1676
+-[ RECORD 7 ]---
+l_partkey | 3130
+-[ RECORD 8 ]---
+l_partkey | 3450
+-[ RECORD 9 ]---
+l_partkey | 3766
+-[ RECORD 10 ]--
+l_partkey | 4392
+-[ RECORD 11 ]--
+l_partkey | 4487
+-[ RECORD 12 ]--
+l_partkey | 4585
+-[ RECORD 13 ]--
+l_partkey | 5006
+-[ RECORD 14 ]--
+l_partkey | 6204
+-[ RECORD 15 ]--
+l_partkey | 6560
+-[ RECORD 16 ]--
+l_partkey | 6587
+-[ RECORD 17 ]--
+l_partkey | 7108
+-[ RECORD 18 ]--
+l_partkey | 7267
+-[ RECORD 19 ]--
+l_partkey | 7680
+-[ RECORD 20 ]--
+l_partkey | 7930
+
+Time: 5,715 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 5 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 30
+-[ RECORD 2 ]---
+l_partkey | 277
+-[ RECORD 3 ]---
+l_partkey | 740
+-[ RECORD 4 ]---
+l_partkey | 811
+-[ RECORD 5 ]---
+l_partkey | 907
+-[ RECORD 6 ]---
+l_partkey | 1078
+-[ RECORD 7 ]---
+l_partkey | 1217
+-[ RECORD 8 ]---
+l_partkey | 1283
+-[ RECORD 9 ]---
+l_partkey | 1332
+-[ RECORD 10 ]--
+l_partkey | 1336
+-[ RECORD 11 ]--
+l_partkey | 1445
+-[ RECORD 12 ]--
+l_partkey | 1665
+-[ RECORD 13 ]--
+l_partkey | 1952
+-[ RECORD 14 ]--
+l_partkey | 2498
+-[ RECORD 15 ]--
+l_partkey | 2515
+-[ RECORD 16 ]--
+l_partkey | 2548
+-[ RECORD 17 ]--
+l_partkey | 2642
+-[ RECORD 18 ]--
+l_partkey | 2783
+-[ RECORD 19 ]--
+l_partkey | 2907
+-[ RECORD 20 ]--
+l_partkey | 3226
+
+Time: 150,211 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 5 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 30
+-[ RECORD 2 ]---
+l_partkey | 277
+-[ RECORD 3 ]---
+l_partkey | 740
+-[ RECORD 4 ]---
+l_partkey | 811
+-[ RECORD 5 ]---
+l_partkey | 907
+-[ RECORD 6 ]---
+l_partkey | 1078
+-[ RECORD 7 ]---
+l_partkey | 1217
+-[ RECORD 8 ]---
+l_partkey | 1283
+-[ RECORD 9 ]---
+l_partkey | 1332
+-[ RECORD 10 ]--
+l_partkey | 1336
+-[ RECORD 11 ]--
+l_partkey | 1445
+-[ RECORD 12 ]--
+l_partkey | 1665
+-[ RECORD 13 ]--
+l_partkey | 1952
+-[ RECORD 14 ]--
+l_partkey | 2498
+-[ RECORD 15 ]--
+l_partkey | 2515
+-[ RECORD 16 ]--
+l_partkey | 2548
+-[ RECORD 17 ]--
+l_partkey | 2642
+-[ RECORD 18 ]--
+l_partkey | 2783
+-[ RECORD 19 ]--
+l_partkey | 2907
+-[ RECORD 20 ]--
+l_partkey | 3226
+
+Time: 3,458 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 6 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 13
+-[ RECORD 2 ]---
+l_partkey | 95
+-[ RECORD 3 ]---
+l_partkey | 355
+-[ RECORD 4 ]---
+l_partkey | 373
+-[ RECORD 5 ]---
+l_partkey | 447
+-[ RECORD 6 ]---
+l_partkey | 460
+-[ RECORD 7 ]---
+l_partkey | 496
+-[ RECORD 8 ]---
+l_partkey | 777
+-[ RECORD 9 ]---
+l_partkey | 908
+-[ RECORD 10 ]--
+l_partkey | 1025
+-[ RECORD 11 ]--
+l_partkey | 1326
+-[ RECORD 12 ]--
+l_partkey | 1447
+-[ RECORD 13 ]--
+l_partkey | 1452
+-[ RECORD 14 ]--
+l_partkey | 1517
+-[ RECORD 15 ]--
+l_partkey | 1638
+-[ RECORD 16 ]--
+l_partkey | 1943
+-[ RECORD 17 ]--
+l_partkey | 2086
+-[ RECORD 18 ]--
+l_partkey | 2164
+-[ RECORD 19 ]--
+l_partkey | 2183
+-[ RECORD 20 ]--
+l_partkey | 2284
+
+Time: 146,681 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 6 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 13
+-[ RECORD 2 ]---
+l_partkey | 95
+-[ RECORD 3 ]---
+l_partkey | 355
+-[ RECORD 4 ]---
+l_partkey | 373
+-[ RECORD 5 ]---
+l_partkey | 447
+-[ RECORD 6 ]---
+l_partkey | 460
+-[ RECORD 7 ]---
+l_partkey | 496
+-[ RECORD 8 ]---
+l_partkey | 777
+-[ RECORD 9 ]---
+l_partkey | 908
+-[ RECORD 10 ]--
+l_partkey | 1025
+-[ RECORD 11 ]--
+l_partkey | 1326
+-[ RECORD 12 ]--
+l_partkey | 1447
+-[ RECORD 13 ]--
+l_partkey | 1452
+-[ RECORD 14 ]--
+l_partkey | 1517
+-[ RECORD 15 ]--
+l_partkey | 1638
+-[ RECORD 16 ]--
+l_partkey | 1943
+-[ RECORD 17 ]--
+l_partkey | 2086
+-[ RECORD 18 ]--
+l_partkey | 2164
+-[ RECORD 19 ]--
+l_partkey | 2183
+-[ RECORD 20 ]--
+l_partkey | 2284
+
+Time: 6,571 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 7 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 1742
+-[ RECORD 2 ]---
+l_partkey | 2276
+-[ RECORD 3 ]---
+l_partkey | 2307
+-[ RECORD 4 ]---
+l_partkey | 2842
+-[ RECORD 5 ]---
+l_partkey | 2925
+-[ RECORD 6 ]---
+l_partkey | 3571
+-[ RECORD 7 ]---
+l_partkey | 4002
+-[ RECORD 8 ]---
+l_partkey | 4010
+-[ RECORD 9 ]---
+l_partkey | 4056
+-[ RECORD 10 ]--
+l_partkey | 4516
+-[ RECORD 11 ]--
+l_partkey | 4653
+-[ RECORD 12 ]--
+l_partkey | 5395
+-[ RECORD 13 ]--
+l_partkey | 5659
+-[ RECORD 14 ]--
+l_partkey | 5671
+-[ RECORD 15 ]--
+l_partkey | 5798
+-[ RECORD 16 ]--
+l_partkey | 6068
+-[ RECORD 17 ]--
+l_partkey | 6911
+-[ RECORD 18 ]--
+l_partkey | 7825
+-[ RECORD 19 ]--
+l_partkey | 9010
+-[ RECORD 20 ]--
+l_partkey | 9318
+
+Time: 83,497 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 7 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 1742
+-[ RECORD 2 ]---
+l_partkey | 2276
+-[ RECORD 3 ]---
+l_partkey | 2307
+-[ RECORD 4 ]---
+l_partkey | 2842
+-[ RECORD 5 ]---
+l_partkey | 2925
+-[ RECORD 6 ]---
+l_partkey | 3571
+-[ RECORD 7 ]---
+l_partkey | 4002
+-[ RECORD 8 ]---
+l_partkey | 4010
+-[ RECORD 9 ]---
+l_partkey | 4056
+-[ RECORD 10 ]--
+l_partkey | 4516
+-[ RECORD 11 ]--
+l_partkey | 4653
+-[ RECORD 12 ]--
+l_partkey | 5395
+-[ RECORD 13 ]--
+l_partkey | 5659
+-[ RECORD 14 ]--
+l_partkey | 5671
+-[ RECORD 15 ]--
+l_partkey | 5798
+-[ RECORD 16 ]--
+l_partkey | 6068
+-[ RECORD 17 ]--
+l_partkey | 6911
+-[ RECORD 18 ]--
+l_partkey | 7825
+-[ RECORD 19 ]--
+l_partkey | 9010
+-[ RECORD 20 ]--
+l_partkey | 9318
+
+Time: 5,074 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 8 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 92
+-[ RECORD 2 ]---
+l_partkey | 475
+-[ RECORD 3 ]---
+l_partkey | 571
+-[ RECORD 4 ]---
+l_partkey | 588
+-[ RECORD 5 ]---
+l_partkey | 759
+-[ RECORD 6 ]---
+l_partkey | 1159
+-[ RECORD 7 ]---
+l_partkey | 1226
+-[ RECORD 8 ]---
+l_partkey | 1328
+-[ RECORD 9 ]---
+l_partkey | 1370
+-[ RECORD 10 ]--
+l_partkey | 1495
+-[ RECORD 11 ]--
+l_partkey | 1509
+-[ RECORD 12 ]--
+l_partkey | 1714
+-[ RECORD 13 ]--
+l_partkey | 1840
+-[ RECORD 14 ]--
+l_partkey | 1889
+-[ RECORD 15 ]--
+l_partkey | 2047
+-[ RECORD 16 ]--
+l_partkey | 2075
+-[ RECORD 17 ]--
+l_partkey | 2078
+-[ RECORD 18 ]--
+l_partkey | 2376
+-[ RECORD 19 ]--
+l_partkey | 2386
+-[ RECORD 20 ]--
+l_partkey | 2477
+
+Time: 154,239 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 8 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 92
+-[ RECORD 2 ]---
+l_partkey | 475
+-[ RECORD 3 ]---
+l_partkey | 571
+-[ RECORD 4 ]---
+l_partkey | 588
+-[ RECORD 5 ]---
+l_partkey | 759
+-[ RECORD 6 ]---
+l_partkey | 1159
+-[ RECORD 7 ]---
+l_partkey | 1226
+-[ RECORD 8 ]---
+l_partkey | 1328
+-[ RECORD 9 ]---
+l_partkey | 1370
+-[ RECORD 10 ]--
+l_partkey | 1495
+-[ RECORD 11 ]--
+l_partkey | 1509
+-[ RECORD 12 ]--
+l_partkey | 1714
+-[ RECORD 13 ]--
+l_partkey | 1840
+-[ RECORD 14 ]--
+l_partkey | 1889
+-[ RECORD 15 ]--
+l_partkey | 2047
+-[ RECORD 16 ]--
+l_partkey | 2075
+-[ RECORD 17 ]--
+l_partkey | 2078
+-[ RECORD 18 ]--
+l_partkey | 2376
+-[ RECORD 19 ]--
+l_partkey | 2386
+-[ RECORD 20 ]--
+l_partkey | 2477
+
+Time: 4,028 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 9 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]----
+l_partkey | 763
+-[ RECORD 2 ]----
+l_partkey | 1773
+-[ RECORD 3 ]----
+l_partkey | 2068
+-[ RECORD 4 ]----
+l_partkey | 3266
+-[ RECORD 5 ]----
+l_partkey | 4126
+-[ RECORD 6 ]----
+l_partkey | 4392
+-[ RECORD 7 ]----
+l_partkey | 4593
+-[ RECORD 8 ]----
+l_partkey | 4825
+-[ RECORD 9 ]----
+l_partkey | 6290
+-[ RECORD 10 ]---
+l_partkey | 6461
+-[ RECORD 11 ]---
+l_partkey | 6745
+-[ RECORD 12 ]---
+l_partkey | 6823
+-[ RECORD 13 ]---
+l_partkey | 7293
+-[ RECORD 14 ]---
+l_partkey | 9193
+-[ RECORD 15 ]---
+l_partkey | 9659
+-[ RECORD 16 ]---
+l_partkey | 9695
+-[ RECORD 17 ]---
+l_partkey | 10498
+-[ RECORD 18 ]---
+l_partkey | 12435
+-[ RECORD 19 ]---
+l_partkey | 12880
+-[ RECORD 20 ]---
+l_partkey | 13120
+
+Time: 85,561 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 9 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]----
+l_partkey | 763
+-[ RECORD 2 ]----
+l_partkey | 1773
+-[ RECORD 3 ]----
+l_partkey | 2068
+-[ RECORD 4 ]----
+l_partkey | 3266
+-[ RECORD 5 ]----
+l_partkey | 4126
+-[ RECORD 6 ]----
+l_partkey | 4392
+-[ RECORD 7 ]----
+l_partkey | 4593
+-[ RECORD 8 ]----
+l_partkey | 4825
+-[ RECORD 9 ]----
+l_partkey | 6290
+-[ RECORD 10 ]---
+l_partkey | 6461
+-[ RECORD 11 ]---
+l_partkey | 6745
+-[ RECORD 12 ]---
+l_partkey | 6823
+-[ RECORD 13 ]---
+l_partkey | 7293
+-[ RECORD 14 ]---
+l_partkey | 9193
+-[ RECORD 15 ]---
+l_partkey | 9659
+-[ RECORD 16 ]---
+l_partkey | 9695
+-[ RECORD 17 ]---
+l_partkey | 10498
+-[ RECORD 18 ]---
+l_partkey | 12435
+-[ RECORD 19 ]---
+l_partkey | 12880
+-[ RECORD 20 ]---
+l_partkey | 13120
+
+Time: 3,002 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 10 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 8
+-[ RECORD 2 ]---
+l_partkey | 188
+-[ RECORD 3 ]---
+l_partkey | 473
+-[ RECORD 4 ]---
+l_partkey | 665
+-[ RECORD 5 ]---
+l_partkey | 922
+-[ RECORD 6 ]---
+l_partkey | 1102
+-[ RECORD 7 ]---
+l_partkey | 1477
+-[ RECORD 8 ]---
+l_partkey | 1626
+-[ RECORD 9 ]---
+l_partkey | 1652
+-[ RECORD 10 ]--
+l_partkey | 1758
+-[ RECORD 11 ]--
+l_partkey | 2008
+-[ RECORD 12 ]--
+l_partkey | 2518
+-[ RECORD 13 ]--
+l_partkey | 2579
+-[ RECORD 14 ]--
+l_partkey | 2961
+-[ RECORD 15 ]--
+l_partkey | 2966
+-[ RECORD 16 ]--
+l_partkey | 3116
+-[ RECORD 17 ]--
+l_partkey | 3372
+-[ RECORD 18 ]--
+l_partkey | 3700
+-[ RECORD 19 ]--
+l_partkey | 4331
+-[ RECORD 20 ]--
+l_partkey | 4473
+
+Time: 150,687 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select l_partkey
+from lineitem l, orders o
+where
+  l_orderkey = o_orderkey and
+  o_custkey in (
+    select c2.c_custkey from friendship, customer c1, customer c2
+    where
+      c1.c_custkey = 10 and
+      f_firstcustkey = c1.c_custkey and
+      f_secondcustkey = c2.c_custkey and
+      c1.c_mktsegment = c2.c_mktsegment
+  )
+order by l_partkey
+limit 20;
+-[ RECORD 1 ]---
+l_partkey | 8
+-[ RECORD 2 ]---
+l_partkey | 188
+-[ RECORD 3 ]---
+l_partkey | 473
+-[ RECORD 4 ]---
+l_partkey | 665
+-[ RECORD 5 ]---
+l_partkey | 922
+-[ RECORD 6 ]---
+l_partkey | 1102
+-[ RECORD 7 ]---
+l_partkey | 1477
+-[ RECORD 8 ]---
+l_partkey | 1626
+-[ RECORD 9 ]---
+l_partkey | 1652
+-[ RECORD 10 ]--
+l_partkey | 1758
+-[ RECORD 11 ]--
+l_partkey | 2008
+-[ RECORD 12 ]--
+l_partkey | 2518
+-[ RECORD 13 ]--
+l_partkey | 2579
+-[ RECORD 14 ]--
+l_partkey | 2961
+-[ RECORD 15 ]--
+l_partkey | 2966
+-[ RECORD 16 ]--
+l_partkey | 3116
+-[ RECORD 17 ]--
+l_partkey | 3372
+-[ RECORD 18 ]--
+l_partkey | 3700
+-[ RECORD 19 ]--
+l_partkey | 4331
+-[ RECORD 20 ]--
+l_partkey | 4473
+
+Time: 6,427 ms

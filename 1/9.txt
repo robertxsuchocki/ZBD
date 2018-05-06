@@ -1,0 +1,88 @@
+psql (9.5.11)
+Type "help" for help.
+
+postgres=# create database tpch;
+CREATE DATABASE
+postgres=# \c tpch
+You are now connected to database "tpch" as user "postgres".
+tpch=# \i ./tpch-build-db.sql
+BEGIN
+CREATE TABLE
+COPY 1800000
+COMMIT
+BEGIN
+CREATE TABLE
+COPY 5
+COMMIT
+BEGIN
+CREATE TABLE
+COPY 25
+COMMIT
+BEGIN
+CREATE TABLE
+COPY 90000
+COMMIT
+BEGIN
+CREATE TABLE
+COPY 1350000
+COMMIT
+BEGIN
+CREATE TABLE
+COPY 7200000
+COMMIT
+BEGIN
+CREATE TABLE
+COPY 13500000
+COMMIT
+BEGIN
+CREATE TABLE
+COPY 53986608
+COMMIT
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+tpch=# \d+
+                                List of relations
+ Schema |          Name          |   Type   |  Owner   |    Size    | Description 
+--------+------------------------+----------+----------+------------+-------------
+ public | customer               | table    | postgres | 261 MB     | 
+ public | customer_c_custkey_seq | sequence | postgres | 8192 bytes | 
+ public | lineitem               | table    | postgres | 8543 MB    | 
+ public | nation                 | table    | postgres | 8192 bytes | 
+ public | nation_n_nationkey_seq | sequence | postgres | 8192 bytes | 
+ public | orders                 | table    | postgres | 1942 MB    | 
+ public | orders_o_orderkey_seq  | sequence | postgres | 8192 bytes | 
+ public | part                   | table    | postgres | 288 MB     | 
+ public | part_p_partkey_seq     | sequence | postgres | 8192 bytes | 
+ public | partsupp               | table    | postgres | 1288 MB    | 
+ public | region                 | table    | postgres | 8192 bytes | 
+ public | region_r_regionkey_seq | sequence | postgres | 8192 bytes | 
+ public | supplier               | table    | postgres | 16 MB      | 
+ public | supplier_s_suppkey_seq | sequence | postgres | 8192 bytes | 
+(14 rows)
+
+tpch=# \x on
+Expanded display is on.
+tpch=# \timing on
+Timing is on.
+tpch=# \i query1.sql
+-[ RECORD 1 ]--+-----------------------
+l_returnflag   | A
+l_linestatus   | F
+sum_qty        | 339737725
+sum_base_price | 509419078748.72
+sum_disc_price | 483946017285.3019
+sum_charge     | 503310457149.612943
+avg_qty        | 25.5012595337623354
+avg_price      | 38237.814592480779
+avg_disc       | 0.05000528809020003168
+count_order    | 13322390
+
+Time: 404201,408 ms
+tpch=# \q
+

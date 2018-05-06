@@ -1,0 +1,743 @@
+tpch=# create index i_orders on orders (o_orderkey);
+CREATE INDEX
+Time: 7944,589 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 55350,303 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 5217,331 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 54385,195 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 5598,743 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 53917,448 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 5136,012 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 54713,702 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 5315,596 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 53523,518 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 4899,289 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 53428,152 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 4593,056 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 53038,126 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 5175,265 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 52237,661 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 4522,090 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 52544,406 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 4699,534 ms
+
+COLD
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 52441,133 ms
+
+HOT
+
+\x on
+Expanded display is on.
+\timing on
+Timing is on.
+select
+	n_name,
+	sum(l_extendedprice * (1 - l_discount)) as revenue
+from
+	customer,
+	orders,
+	lineitem,
+	supplier,
+	nation,
+	region
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and l_suppkey = s_suppkey
+	and c_nationkey = s_nationkey
+	and s_nationkey = n_nationkey
+	and n_regionkey = r_regionkey
+	and r_name = 'AMERICA'
+	and o_orderdate >= date '1995-01-01'
+	and o_orderdate < date '1995-01-01' + interval '1' year
+group by
+	n_name
+order by
+	revenue desc
+limit 1;
+-[ RECORD 1 ]----------------------
+n_name  | ARGENTINA                
+revenue | 274197985.2580
+
+Time: 4547,487 ms

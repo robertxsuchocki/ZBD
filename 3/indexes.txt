@@ -1,0 +1,10 @@
+tpch=# create index i_lineitem on lineitem ((l_extendedprice * (1 - l_discount)), l_orderkey, l_suppkey);
+CREATE INDEX
+Time: 149058,652 ms
+tpch=# create index i_orders on orders (o_orderdate, o_orderkey, o_custkey);
+CREATE INDEX
+Time: 22237,429 ms
+tpch=# create index i_customer on customer (c_nationkey, c_custkey);
+CREATE INDEX
+Time: 1219,255 ms
+

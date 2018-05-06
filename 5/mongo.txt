@@ -1,0 +1,52 @@
+robert@InPieces:~/Code/ZBD/5$ ./script.sh 
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	5m50.172s
+user	0m0.230s
+sys	0m0.065s
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	5m46.515s
+user	0m0.167s
+sys	0m0.047s
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	5m40.087s
+user	0m0.172s
+sys	0m0.067s
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	6m32.070s
+user	0m0.196s
+sys	0m0.055s
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	4m31.473s
+user	0m0.114s
+sys	0m0.052s
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	5m4.457s
+user	0m0.139s
+sys	0m0.056s
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	5m39.607s
+user	0m0.185s
+sys	0m0.063s
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	5m41.504s
+user	0m0.192s
+sys	0m0.033s
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	5m28.107s
+user	0m0.163s
+sys	0m0.079s
+{u'_id': {u'n_name': {u'n_name': u'CANADA'}}, u'revenue': 682874578.6166}
+
+real	4m24.367s
+user	0m0.105s
+sys	0m0.037s
+

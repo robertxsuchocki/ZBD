@@ -1,0 +1,8 @@
+robert@InPieces:~/Code/ZBD/5$ time python view.py 
+2999671
+2999671
+
+real	12m50.504s
+user	0m0.332s
+sys	0m0.059s
+

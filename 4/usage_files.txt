@@ -1,0 +1,7 @@
+robert@InPieces:~/Code/ZBD/4$ time python files.py
+TPC-H Population Generator (Version 2.17.3)
+Copyright Transaction Processing Performance Council 1994 - 2010
+
+real	12m33.378s
+user	10m56.564s
+sys	1m1.413s

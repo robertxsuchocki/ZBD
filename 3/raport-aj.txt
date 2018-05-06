@@ -1,0 +1,92 @@
+Partycje
+--------
+
+Po dwukropku - ilość elementów.
+
+Baza (bez partycji)
+
+Na 2 części (2x hdd):
+    o_orderdate (rok 1997, osobna partycja dla <1997):
+    m01-06: 113118 (*)
+    m07-12: 114665 (*)
+
+    l_linenumber:
+      <3: 2785828
+     >=3: 3215387
+
+Na 3 części (2x hdd + ssd):
+    lineitem:
+      <2: 1500000
+     2-4: 3214237 (ssd)
+      >4: 1286978
+
+    orders:
+      1-4: 74648
+      5-8: 77231 (ssd)
+     9-12: 75904
+
+Inne tabele są relatywnie niewielkie, więc nie partycjonujemy.
+
+
+Niech postgres zbierze sobie dane:
+# analyze;
+
+
+Klastrowanie (gronowanie?):
+# CLUSTER lineitem USING lineitem_pkey;
+# CLUSTER orders USING orders_pkey;
+Reszta i tak jest mała.
+
+
+Benchmark
+---------
+
+Metaparametry:
+SF=3
+Uruchomienia: po 5 na próbkę
+indeksy wyłączone (bo wtedy cold time był najmniejszy dla zad2)
+
+Baza:
+    not clustered:
+        cold: [42232, 40404, 39723, 50470, 48132]
+        hot: [5074, 4903, 4843, 5160, 4853]
+    clustered:
+        cold: [43379, 42696, 41410, 41684, 40378]
+        hot: [5280, 5084, 5357, 5146, 5144]
+
+Na 2 części: (nie korzysta z dysków współbieżnie)
+    not clustered:
+        cold: [205199, 48032, 51567, 48409, 49310]
+        hot: [5329, 5520, 4958, 4988, 5093]
+    clustered:
+        cold: [52258, 53108, 42765, 47442, 49321]
+        hot: [5698, 5227, 5220, 5256, 5010]
+
+Na 3 części (nadal nie korzysta ładnie współbieżnie z dysków; a szybciej, bo SSD):
+    not clustered:
+        cold: [46157, 34056, 36322, 33401, 33509]
+        hot: [5185, 5485, 5293, 5269, 4914]
+    clustered:
+        cold: [33518, 36091, 36495, 35392, 36432]
+        hot: [5690, 5426, 5229, 5099, 5252]
+
+klastrowanie:
+CREATE INDEX lineitem_p1_pk ON lineitem_p1 (l_orderkey, l_linenumber);
+CREATE INDEX orders_p1_pk ON orders_p1 (o_orderkey);
+CLUSTER lineitem_p1 USING lineitem_p1_pk;
+CLUSTER orders_p1 USING orders_p1_pk;
+DROP INDEX ...
+
+
+Uwagi:
+* jeden wynik jest dość duży - nie wiem z czego to wynika; powyłączałem inne programy, wyczyszściłem cache, etc.
+                             - większość czasu obciążony był stary HDD (rozruch miał, bo wczytywałem dane)
+* partycjonowanie nic nie daje - wydaje mi się, że powinienem te mniejsze tabele też jakoś różnie porozmieszczać
+                               - po różnych dyskach, bo postgres przez większość czasu obciążał głównie jeden dysk
+                               - (przeprowadzanie eksperymentów jest zbyt czasochłonne, bym mógł pozwolić sobie
+                               -  na więcej testów)
+                               - (ew. zwiększyć liczbę workerów, jak mniemam gdzieś w configu postgresa)
+* 3 partycje przyspieszyły -> bo użyłem tam SSD
+* jak widać klastrowanie również za bardzo nie pomaga
+
+Dołączyłem również wyniki explain analyze pierwszych wyników z list powyżej oraz wykres i zapytanie.

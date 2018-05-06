@@ -1,0 +1,7 @@
+robert@InPieces:~/Code/ZBD/4$ time python3 python.py 
+{'l_discount': 0.07, 'l_receiptdate': '1995-09-04', 'l_suppkey': 39711, 'l_returnflag': 'N', 'l_commitdate': '1995-08-27', '_id': ObjectId('5ab6bfc455b6124233b1379a'), 'l_comment': 'refully. ironic accounts s', 'l_orderkey': 10100000, 'l_shipmode': 'TRUCK', 'l_linenumber': 1, 'l_quantity': 7, 'l_shipdate': '1995-08-13', 'l_linestatus': 'O', 'l_partkey': 14710, 'l_tax': 0.05, 'l_shipinstruct': 'NONE', 'l_extendedprice': 11372.97}
+
+real	0m10.241s
+user	0m0.145s
+sys	0m0.017s
+

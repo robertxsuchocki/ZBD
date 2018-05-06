@@ -1,0 +1,129 @@
+robert@InPieces:~/Code/ZBD/4$ mongo
+MongoDB shell version: 3.2.19
+connecting to: test
+> show dbs
+local  0.000GB
+tpch   5.020GB
+> use tpch
+switched to db tpch
+> show collections
+customer
+lineitem
+nation
+orders
+part
+partsupp
+region
+supplier
+> db.customer.count()
+750000
+> db.customer.findOne()
+{
+	"_id" : ObjectId("5ab6c39055b6124233e0dfd0"),
+	"c_custkey" : 2,
+	"c_name" : "Customer#000000002",
+	"c_address" : "XSTf4\\.NCwDVaWNe6tEgvwfmRchLXak",
+	"c_nationkey" : 13,
+	"c_phone" : "23-768-687-3665",
+	"c_acctbal" : 121.65,
+	"c_mktsegment" : "AUTOMOBILE",
+	"c_comment" : "l accounts. blithely ironic theodolites integrate boldly: caref"
+}
+> db.lineitem.count()
+29999795
+> db.lineitem.findOne()
+{
+	"_id" : ObjectId("5ab6bda155b6124233171d1d"),
+	"l_orderkey" : 1,
+	"l_partkey" : 775947,
+	"l_suppkey" : 38463,
+	"l_linenumber" : 1,
+	"l_quantity" : 17,
+	"l_extendedprice" : 34389.47,
+	"l_discount" : 0.04,
+	"l_tax" : 0.02,
+	"l_returnflag" : "N",
+	"l_linestatus" : "O",
+	"l_shipdate" : "1996-03-13",
+	"l_commitdate" : "1996-02-12",
+	"l_receiptdate" : "1996-03-22",
+	"l_shipinstruct" : "DELIVER IN PERSON",
+	"l_shipmode" : "TRUCK",
+	"l_comment" : "egular courts above the"
+}
+> db.nation.count()
+25
+> db.nation.findOne()
+{
+	"_id" : ObjectId("5ab6c4de55b61242335ec260"),
+	"n_nationkey" : 1,
+	"n_name" : "ARGENTINA",
+	"n_regionkey" : 1,
+	"n_comment" : "al foxes promise slyly according to the regular accounts. bold requests alon"
+}
+> db.orders.count()
+7500000
+> db.orders.findOne()
+{
+	"_id" : ObjectId("5ab6c3b055b6124233ec5180"),
+	"o_orderkey" : 1,
+	"o_custkey" : 184501,
+	"o_orderstatus" : "O",
+	"o_totalprice" : 203010.51,
+	"o_orderdate" : "1996-01-02",
+	"o_orderpriority" : "5-LOW",
+	"o_clerk" : "Clerk#000004753",
+	"o_shippriority" : 0,
+	"o_comment" : "nstructions sleep furiously among"
+}
+> db.part.count()
+1000000
+> db.part.findOne()
+{
+	"_id" : ObjectId("5ab6c55455b61242339c8ec9"),
+	"p_partkey" : 1,
+	"p_name" : "goldenrod lavender spring chocolate lace",
+	"p_mfgr" : "Manufacturer#1",
+	"p_brand" : "Brand#13",
+	"p_type" : "PROMO BURNISHED COPPER",
+	"p_size" : 7,
+	"p_container" : "JUMBO PKG",
+	"p_retailprice" : 901,
+	"p_comment" : "ly. slyly ironi"
+}
+> db.partsupp.count()
+4000000
+> db.partsupp.findOne()
+{
+	"_id" : ObjectId("5ab6c4de55b61242335ec279"),
+	"ps_partkey" : 1,
+	"ps_suppkey" : 12502,
+	"ps_availqty" : 8076,
+	"ps_supplycost" : 993.49,
+	"ps_comment" : "ven ideas. quickly even packages print. pending multipliers must have to are fluff"
+}
+> db.region.count()
+5
+> db.region.findOne()
+{
+	"_id" : ObjectId("5ab6c57055b6124233abd109"),
+	"r_regionkey" : 1,
+	"r_name" : "AMERICA",
+	"r_comment" : "hs use ironic\\. even requests. s"
+}
+> db.supplier.count()
+50000
+> db.supplier.findOne()
+{
+	"_id" : ObjectId("5ab6c55355b61242339bcb79"),
+	"s_suppkey" : 2,
+	"s_name" : "Supplier#000000002",
+	"s_address" : "89eJ5ksX3ImxJQBvxObC\\.",
+	"s_nationkey" : 5,
+	"s_phone" : "15-679-861-2259",
+	"s_acctbal" : 4032.68,
+	"s_comment" : "slyly bold instructions. idle dependen"
+}
+> exit
+bye
+

@@ -1,0 +1,17 @@
+1. content-based filtering
+   Osoba O kupiła part P1, osoba O nie kupiła P2, P1 podobny do P2 -> O KUP P2
+   ten sam brand
+2. collaborating filtering
+   Osoba O1 podobna do O2, osoba O2 kupiła P, osoba O1 nie kupiła P -> O1 KUP P
+   (1) ten sam MKTSEGMENT, KRAJ
+   (2) jest znajomym 1, 2, 3, ... stopień
+3. Osoba O kupuje często P -> O KUP ZNOWU P (rekomendujemy 10 najczęstszych produktów przez O)
+4. Osoba O kupuje często produkty dostawcy S -> O KUP inne produkty od S
+   (1) S jest najczęstszym dostawcą dla O
+   (2) P jest wśród
+        (a) 10 najczęściej kupowanych produktów S, bez tego co już O kupił
+		    (b) 10 najlepiej ocenianych produktów dostawcy (. negatywne 10^5, bez . pozytywne 5 * 10^4)
+
+Rekomendacje bez rankowania, dla wszystkich użytkowników
+
+Id osób mniejsze od 100, może 1000

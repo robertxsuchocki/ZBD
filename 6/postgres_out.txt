@@ -1,0 +1,23 @@
+robert@InPieces:~/Code/ZBD/6$ sudo -u postgres psql postgres
+Expanded display is on.
+Timing is on.
+psql (9.5.12)
+Type "help" for help.
+
+postgres=# \c tpch
+You are now connected to database "tpch" as user "postgres".
+tpch=# \i ./friendship_table_build.sql
+BEGIN
+Time: 0,120 ms
+CREATE TABLE
+Time: 11,316 ms
+COPY 3224379
+Time: 11192,107 ms
+COMMIT
+Time: 10,062 ms
+ALTER TABLE
+Time: 1195,275 ms
+ALTER TABLE
+Time: 1577,486 ms
+tpch=# \q
+

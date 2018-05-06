@@ -1,0 +1,15 @@
+robert@InPieces:~/Code/ZBD/7$ sudo -u postgres psql postgres
+Expanded display is on.
+Timing is on.
+psql (9.5.12)
+Type "help" for help.
+
+postgres=# \c tpch
+You are now connected to database "tpch" as user "postgres".
+tpch=# \i view.sql
+SELECT 2999671
+Time: 83623,579 ms
+SELECT 1074326
+Time: 34725,464 ms
+tpch=# \q
+

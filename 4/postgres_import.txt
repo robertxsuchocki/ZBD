@@ -1,0 +1,95 @@
+robert@InPieces:~/Code/ZBD/1$ sudo -u postgres time psql postgres
+Expanded display is on.
+Timing is on.
+psql (9.5.12)
+Type "help" for help.
+
+postgres=# create database tpch;
+CREATE DATABASE
+Time: 505,741 ms
+postgres=# \c tpch
+You are now connected to database "tpch" as user "postgres".
+tpch=# \i ./tpch-build-db.sql
+BEGIN
+Time: 0,176 ms
+CREATE TABLE
+Time: 32,468 ms
+COPY 1000000
+Time: 9835,223 ms
+COMMIT
+Time: 3,001 ms
+BEGIN
+Time: 0,190 ms
+CREATE TABLE
+Time: 8,932 ms
+COPY 5
+Time: 6,683 ms
+COMMIT
+Time: 3,230 ms
+BEGIN
+Time: 0,790 ms
+CREATE TABLE
+Time: 8,778 ms
+COPY 25
+Time: 7,814 ms
+COMMIT
+Time: 3,499 ms
+BEGIN
+Time: 0,362 ms
+CREATE TABLE
+Time: 15,105 ms
+COPY 50000
+Time: 491,040 ms
+COMMIT
+Time: 3,058 ms
+BEGIN
+Time: 0,268 ms
+CREATE TABLE
+Time: 16,052 ms
+COPY 750000
+Time: 7518,582 ms
+COMMIT
+Time: 6,567 ms
+BEGIN
+Time: 0,109 ms
+CREATE TABLE
+Time: 17,939 ms
+COPY 4000000
+Time: 31208,463 ms
+COMMIT
+Time: 5,853 ms
+BEGIN
+Time: 0,128 ms
+CREATE TABLE
+Time: 20,023 ms
+COPY 7500000
+Time: 66633,196 ms
+COMMIT
+Time: 2,648 ms
+BEGIN
+Time: 0,120 ms
+CREATE TABLE
+Time: 18,107 ms
+COPY 29999795
+Time: 329087,385 ms
+COMMIT
+Time: 6,400 ms
+ALTER TABLE
+Time: 60,417 ms
+ALTER TABLE
+Time: 9731,474 ms
+ALTER TABLE
+Time: 2099,812 ms
+ALTER TABLE
+Time: 828,348 ms
+ALTER TABLE
+Time: 17078,840 ms
+ALTER TABLE
+Time: 126767,023 ms
+ALTER TABLE
+Time: 133318,643 ms
+ALTER TABLE
+Time: 5,832 ms
+tpch=# \q
+0.06user 0.03system 12:52.94elapsed 0%CPU (0avgtext+0avgdata 10872maxresident)k
+11744inputs+24outputs (65major+3250minor)pagefaults 0swaps

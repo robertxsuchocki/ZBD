@@ -1,0 +1,6 @@
+robert@InPieces:~/Code/ZBD/6$ time ./friendship.py 0.5
+
+real	2m18.687s
+user	1m56.871s
+sys	0m21.437s
+

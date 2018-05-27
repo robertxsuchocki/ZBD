@@ -1,2 +1,4 @@
 /tpch
+*.tbl
+*.csv
 

@@ -1,0 +1,60 @@
+robert@InPieces:~/Code/ZBD/10$ time cypher-shell -u neo4j -p neo4j < /home/robert/Code/ZBD/10/import_1.cypher
+
+
+
+
+
+
+
+real	0m30,775s
+user	0m1,464s
+sys	0m0,090s
+robert@InPieces:~/Code/ZBD/10$ time cypher-shell -u neo4j -p neo4j < /home/robert/Code/ZBD/10/import_2.cypher
+
+
+real	1m32,370s
+user	0m1,357s
+sys	0m0,096s
+robert@InPieces:~/Code/ZBD/10$ time cypher-shell -u neo4j -p neo4j < /home/robert/Code/ZBD/10/import_3.cypher
+
+
+
+
+
+
+
+
+
+real	0m1,352s
+user	0m1,313s
+sys	0m0,126s
+robert@InPieces:~/Code/ZBD/10$ time cypher-shell -u neo4j -p neo4j < /home/robert/Code/ZBD/10/import_4.cypher
+
+
+
+real	0m20,214s
+user	0m1,625s
+sys	0m0,109s
+robert@InPieces:~/Code/ZBD/10$ time cypher-shell -u neo4j -p neo4j < /home/robert/Code/ZBD/10/import_5.cypher
+
+
+
+
+real	0m57,907s
+user	0m1,374s
+sys	0m0,159s
+robert@InPieces:~/Code/ZBD/10$ time cypher-shell -u neo4j -p neo4j < /home/robert/Code/ZBD/10/import_6.cypher
+
+
+
+
+real	0m1,080s
+user	0m1,265s
+sys	0m0,076s
+robert@InPieces:~/Code/ZBD/10$ time cypher-shell -u neo4j -p neo4j < /home/robert/Code/ZBD/10/import_7.cypher
+
+
+real	0m1,063s
+user	0m1,217s
+sys	0m0,099s
+

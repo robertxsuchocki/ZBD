@@ -13,7 +13,7 @@ supplier_headers = "s_suppkey, s_name, s_address, s_nationkey, s_phone, s_acctba
 
 # Get *.tbl files for database
 os.chdir("/home/robert/Code/ZBD/tpch/dbgen")
-os.system("./dbgen -s 0.5")
+os.system("./dbgen -s 0.2")
 os.system("mv *.tbl ../../10")
 os.chdir("/home/robert/Code/ZBD/10")
 
